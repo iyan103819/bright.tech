@@ -2,457 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BrightTech Gaming</title>
+  <title>PLDT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      scroll-behavior: smooth;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      margin: 0;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
-    }
-
-    nav {
-      background-color: #111;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px #0ff;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      color: #0ff;
-      font-size: 22px;
-      text-shadow: 0 0 5px #0ff;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .nav-links a {
-      color: #0ff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-size: 16px;
-      transition: 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 4px;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      color: #ff00ff;
-      text-shadow: 0 0 8px #ff00ff;
-      background-color: rgba(255, 0, 255, 0.1);
-    }
-
-    .nav-links a:active {
-      transform: scale(0.95);
-    }
-
-    section {
-      padding: 80px 20px 60px;
-      text-align: center;
-      display: none;
-      animation: fadeInUp 0.5s ease;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    #home {
-      position: relative;
-      min-height: 100vh;
-      background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/9bc27292880429.5e569ff84e4d0.gif');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      z-index: 1;
-      padding: 100px 20px 80px;
-    }
-
-    #home::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: -1;
-    }
-
-    h1, h2 {
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff;
-      font-size: 2em;
-      margin: 0 0 20px 0;
-    }
-
-    p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      font-size: 17px;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    .search-box {
-      max-width: 500px;
-      margin: 40px auto 0;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .search-box input[type="text"] {
-      flex: 1 1 60%;
-      padding: 14px 16px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #0ff;
-      background-color: #111;
-      color: #0ff;
-      outline: none;
-      box-shadow: 0 0 10px #0ff;
-      transition: 0.3s;
-      min-width: 200px;
-      min-height: 44px;
-    }
-
-    .search-box input[type="text"]::placeholder {
-      color: #888;
-    }
-
-    .search-box input[type="button"] {
-      padding: 14px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background-color: #0ff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 10px #0ff;
-      min-height: 44px;
-      touch-action: manipulation;
-    }
-
-    .search-box input[type="button"]:hover,
-    .search-box input[type="button"]:focus {
-      background-color: #ff00ff;
-      color: #fff;
-      box-shadow: 0 0 15px #ff00ff;
-    }
-
-    .search-box input[type="button"]:active {
-      transform: scale(0.95);
-    }
-
-    form {
-      background: #1a1a1a;
-      padding: 30px;
-      margin: 20px auto;
-      max-width: 350px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #0ff;
-      width: 90%;
-    }
-
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 16px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      background-color: #111;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 0 10px #00f7ff;
-      transition: box-shadow 0.3s ease;
-      outline: none;
-      min-height: 44px;
-      -webkit-appearance: none;
-      box-sizing: border-box;
-    }
-
-    input[type="text"]::placeholder,
-    input[type="password"]::placeholder {
-      color: #666;
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      box-shadow: 0 0 15px #00f7ff;
-    }
-
-    input[type="submit"] {
-      width: 100%;
-      padding: 16px;
-      margin-top: 10px;
-      background-color: #00f7ff;
-      color: #000;
-      font-weight: bold;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00f7ff;
-      transition: 0.3s;
-      min-height: 44px;
-      touch-action: manipulation;
-      -webkit-appearance: none;
-    }
-
-    input[type="submit"]:hover,
-    input[type="submit"]:focus {
-      background-color: #ff00ff;
-      color: #fff;
-      box-shadow: 0 0 15px #ff00ff;
-    }
-
-    input[type="submit"]:active {
-      transform: scale(0.95);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    /* Mobile-friendly touch targets */
-    .touch-target {
-      min-height: 44px;
-      min-width: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Prevent zoom on input focus for iOS */
-    @media screen and (-webkit-min-device-pixel-ratio: 0) {
-      input[type="text"], input[type="password"] {
-        font-size: 16px;
-      }
-    }
-
-    /* Better mobile scrolling */
-    html {
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* Hide background attachment on mobile for better performance */
-    @media (max-width: 768px) {
-      #home {
-        background-attachment: scroll;
-      }
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .service-card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #0ff;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    }
-
-    .service-card h3 {
-      color: #0ff;
-      margin-top: 0;
-      font-size: 1.2em;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 10px 15px;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        margin-top: 15px;
-      }
-
-      .nav-links a {
-        margin: 5px;
-        font-size: 14px;
-        padding: 10px 15px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      h2 {
-        font-size: 1.5em;
-      }
-
-      p {
-        font-size: 16px;
-        margin: 0 auto 15px;
-      }
-
-      section {
-        padding: 60px 15px 40px;
-      }
-
-      #home {
-        padding: 80px 15px 60px;
-        background-attachment: scroll;
-      }
-
-      .search-box {
-        flex-direction: column;
-        gap: 15px;
-        margin: 30px auto 0;
-      }
-
-      .search-box input[type="text"] {
-        width: 100%;
-        min-width: auto;
-      }
-
-      .search-box input[type="button"] {
-        width: 100%;
-      }
-
-      form {
-        padding: 25px 20px;
-        margin: 15px auto;
-        width: 95%;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 25px;
-      }
-
-      .service-card {
-        padding: 20px 15px;
-      }
-
-      .service-card h3 {
-        font-size: 1.1em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 18px;
-      }
-
-      .nav-links a {
-        font-size: 13px;
-        padding: 8px 12px;
-        margin: 3px;
-      }
-
-      h1 {
-        font-size: 1.5em;
-      }
-
-      h2 {
-        font-size: 1.3em;
-      }
-
-      p {
-        font-size: 15px;
-      }
-
-      section {
-        padding: 50px 10px 30px;
-      }
-
-      #home {
-        padding: 70px 10px 50px;
-      }
-
-      form {
-        padding: 20px 15px;
-        width: 95%;
-      }
-
-      input[type="text"], input[type="password"], input[type="submit"] {
-        padding: 14px;
-        font-size: 15px;
-      }
-
-      .search-box input[type="text"], .search-box input[type="button"] {
-        padding: 12px;
-        font-size: 15px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
   <script>
     let isLoggedIn = false;
     let isSignupMode = false;
-    let users = [
-      { username: "admin", password: "1234" }
-    ];
+    let users = [{ username: "admin", password: "1234" }];
 
     function navigateTo(id) {
-      // Check if user is trying to access non-auth pages without being logged in
       if (!isLoggedIn && id !== 'auth') {
         alert("Please log in or sign up to access the website.");
         id = 'auth';
       }
-      
+
       const sections = document.querySelectorAll("section");
       sections.forEach(sec => sec.style.display = "none");
       const target = document.getElementById(id);
@@ -494,11 +58,7 @@
     function showLoggedInUI(username) {
       document.getElementById("logoutBtn").style.display = "inline";
       document.getElementById("authLink").style.display = "none";
-      
-      // Show all protected navigation links
-      const protectedLinks = document.querySelectorAll('.protected-link');
-      protectedLinks.forEach(link => link.style.display = "inline");
-      
+      document.querySelectorAll('.protected-link').forEach(link => link.style.display = "inline");
       alert(`Welcome, ${username}!`);
       navigateTo('home');
     }
@@ -508,11 +68,7 @@
       document.getElementById("authForm").reset();
       document.getElementById("logoutBtn").style.display = "none";
       document.getElementById("authLink").style.display = "inline";
-      
-      // Hide all protected navigation links
-      const protectedLinks = document.querySelectorAll('.protected-link');
-      protectedLinks.forEach(link => link.style.display = "none");
-      
+      document.querySelectorAll('.protected-link').forEach(link => link.style.display = "none");
       alert("You have been logged out.");
       navigateTo('auth');
     }
@@ -526,19 +82,13 @@
       document.getElementById("authForm").reset();
     }
 
-    function openSignup() {
-      isSignupMode = true;
-      toggleAuthMode();
-      navigateTo("auth");
-    }
-
     function search() {
       if (!isLoggedIn) {
         alert("Please log in or sign up to use the search feature.");
         navigateTo('auth');
         return;
       }
-      
+
       const input = document.getElementById("searchInput").value.toLowerCase().trim();
       if (input === "") {
         alert("Please enter a search term.");
@@ -564,16 +114,11 @@
       }
     }
 
-    // Allow Enter key to trigger search
-    function handleSearchKeyPress(event) {
-      if (event.key === 'Enter') {
-        search();
-      }
-    }
-
     window.onload = () => {
-      navigateTo('auth'); // Start with auth page instead of home
-      document.getElementById("searchInput").addEventListener('keypress', handleSearchKeyPress);
+      navigateTo('auth');
+      document.getElementById("searchInput").addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') search();
+      });
     };
   </script>
 </head>
@@ -581,7 +126,7 @@
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo">🎮 BrightTech</div>
+      <div class="logo"> PLDT</div>
       <div class="nav-links" id="navLinks">
         <a href="javascript:void(0);" onclick="navigateTo('home')" style="display:none;" class="protected-link">Home</a>
         <a href="javascript:void(0);" onclick="navigateTo('about')" style="display:none;" class="protected-link">About</a>
@@ -594,63 +139,165 @@
   </nav>
 
   <section id="home">
-    <h1>Welcome to BrightTech Forge</h1>
-    <p>"Where creativity meets control, and every pixel matters."</p>
+    <h1>Welcome to PLDT Digital Hub</h1>
+    <p>"Empowering your world with reliable internet and digital solutions."</p>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Search for 'services', 'about', etc.">
       <input type="button" value="Search" onclick="search()">
+    </div>
+
+    <!-- WiFi Services Section -->
+    <div class="home-content-grid">
+      <div class="content-section">
+        <h2>🌐 WiFi Services</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>📡 Fibr Plus</h3>
+            <p>Ultra-fast fiber internet up to 1 Gbps with unlimited data and premium WiFi 6 router included.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🏠 Home Fibr</h3>
+            <p>Reliable home internet starting at 25 Mbps with free installation and dual-band WiFi router.</p>
+          </div>
+          <div class="feature-card">
+            <h3>🎮 Gaming Fibr</h3>
+            <p>Low-latency gaming internet with priority bandwidth and gaming-optimized WiFi 6E router.</p>
+          </div>
+          <div class="feature-card">
+            <h3>💼 Business Fibr</h3>
+            <p>Enterprise-grade internet with dedicated bandwidth, mesh network, and business-class security.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>📡 Router Types</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>WiFi 6E Router</h3>
+            <p><strong>Latest Technology:</strong> Supports 6GHz band with speeds up to 6 Gbps. Perfect for 4K streaming and gaming.</p>
+          </div>
+          <div class="feature-card">
+            <h3>WiFi 6 Router</h3>
+            <p><strong>High Performance:</strong> Dual-band 5GHz/2.4GHz with speeds up to 3 Gbps. Ideal for smart homes.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Mesh Network System</h3>
+            <p><strong>Whole Home Coverage:</strong> Multiple access points for seamless coverage in large homes and offices.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Basic WiFi 5 Router</h3>
+            <p><strong>Affordable Option:</strong> Reliable dual-band router with speeds up to 1.2 Gbps for everyday use.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>📶 WiFi Standards</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>WiFi 6E (802.11ax)</h3>
+            <p><strong>6GHz Band:</strong> Latest standard with tri-band support, reduced congestion, and ultra-low latency.</p>
+          </div>
+          <div class="feature-card">
+            <h3>WiFi 6 (802.11ax)</h3>
+            <p><strong>Next-Gen Speed:</strong> 4x faster than WiFi 5, better performance with multiple devices connected.</p>
+          </div>
+          <div class="feature-card">
+            <h3>WiFi 5 (802.11ac)</h3>
+            <p><strong>Proven Performance:</strong> Reliable 5GHz technology perfect for HD streaming and video calls.</p>
+          </div>
+          <div class="feature-card">
+            <h3>WiFi 4 (802.11n)</h3>
+            <p><strong>Basic Connectivity:</strong> Standard dual-band WiFi for basic internet browsing and light usage.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>⚡ Speed Plans</h2>
+        <div class="speed-plans">
+          <div class="plan-card">
+            <h3>25 Mbps</h3>
+            <p>Perfect for browsing, social media, and light streaming</p>
+            <span class="price">₱1,699/month</span>
+          </div>
+          <div class="plan-card featured">
+            <h3>100 Mbps</h3>
+            <p>Ideal for HD streaming, video calls, and online gaming</p>
+            <span class="price">₱2,499/month</span>
+            <span class="badge">Most Popular</span>
+          </div>
+          <div class="plan-card">
+            <h3>300 Mbps</h3>
+            <p>Great for 4K streaming, multiple devices, and heavy usage</p>
+            <span class="price">₱3,999/month</span>
+          </div>
+          <div class="plan-card">
+            <h3>1 Gbps</h3>
+            <p>Ultimate speed for businesses and power users</p>
+            <span class="price">₱7,999/month</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="about">
     <h1>About Us</h1>
-    <p>
-      BrightTech Forge is a neon-powered creative agency built for gamers, streamers, and tech enthusiasts. Since 2021,
-      we've helped elevate digital brands with stunning visuals, custom-built websites, and immersive design strategies.
-    </p>
-    <p>
-      What sets us apart? We're gamers too—so we understand the community, the vibe, and the tech that drives it all.
-      Our team combines cutting-edge technology with creative passion to deliver experiences that resonate with gaming culture.
-    </p>
+    <div class="about-divider"></div>
+
+    <img src="https://media.sketchfab.com/models/a3ff9c87c6974344bcc120324e696345/thumbnails/74f59e09100a4a2fba417ab5eafd4118/a00a8d97634b4b3d915e1457f442d794.jpeg"
+         alt="PLDT Logo"
+         class="about-logo" />
+
+    <p>PLDT Gaming brings blazing internet speed and unmatched reliability to the Filipino gaming community.</p>
+
+    <div class="about-box">
+      <h2>🎯 Our Mission</h2>
+      <p>To empower digital lifestyles through high-speed connectivity and gamer-centric innovations.</p>
+
+      <h2>🚀 Our Vision</h2>
+      <p>To become the most trusted gaming ISP in Southeast Asia.</p>
+    </div>
   </section>
 
   <section id="services">
     <h1>Our Services</h1>
-    <p>We offer comprehensive digital solutions tailored for the gaming and tech community:</p>
     <div class="services-grid">
       <div class="service-card">
-        <h3>🎮 Game Web Design</h3>
-        <p>Custom gaming websites with immersive UI/UX, responsive design, and cutting-edge visual effects that capture your game's essence.</p>
+        <h3>🌐 Fiber Internet</h3>
+        <p>Experience ultra-fast fiber internet for streaming, gaming, and working from home.</p>
       </div>
       <div class="service-card">
-        <h3>🎥 Streamer Branding</h3>
-        <p>Complete branding packages including logos, overlays, alerts, and channel graphics that make your stream stand out.</p>
+        <h3>📞 Landline & VoIP</h3>
+        <p>Reliable voice services for residential and business needs.</p>
       </div>
       <div class="service-card">
-        <h3>📱 Social Media Boost</h3>
-        <p>Strategic social media management, content creation, and community engagement to grow your gaming presence.</p>
+        <h3>📺 Digital TV</h3>
+        <p>Entertainment packages for every home via Cignal TV & streaming bundles.</p>
       </div>
     </div>
   </section>
 
   <section id="patreons">
-    <h1>Our Patreons</h1>
-    <p>We are grateful to our amazing supporters who help us continue creating incredible gaming experiences:</p>
+    <h1>Our Supporters</h1>
+    <p>We are thankful to our partners and loyal customers who continue to trust PLDT services:</p>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
       <div style="text-align: center;">
-        <img src="https://via.placeholder.com/100x100/0ff/000?text=G1" alt="GamerOne" style="border-radius: 50%; box-shadow: 0 0 10px #0ff;">
-        <p style="color: #0ff; margin-top: 10px;">GamerOne</p>
-        <p style="color: #888; font-size: 14px;">Pro Gamer & Streamer</p>
-      </div>
-      <div style="text-align: center;">
-        <img src="https://via.placeholder.com/100x100/0ff/000?text=CW" alt="CodeWizard" style="border-radius: 50%; box-shadow: 0 0 10px #0ff;">
-        <p style="color: #0ff; margin-top: 10px;">CodeWizard</p>
-        <p style="color: #888; font-size: 14px;">Game Developer</p>
-      </div>
-      <div style="text-align: center;">
-        <img src="https://via.placeholder.com/100x100/0ff/000?text=PQ" alt="PixelQueen" style="border-radius: 50%; box-shadow: 0 0 10px #0ff;">
-        <p style="color: #0ff; margin-top: 10px;">PixelQueen</p>
-        <p style="color: #888; font-size: 14px;">Digital Artist</p>
+        <section id="patreons">
+         <h1>Our Supporters</h1>
+          <p>We are thankful to our partners and loyal customers who continue to trust PLDT services:</p>
+         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
+         <div style="text-align: center;">
+      <img src="aira_pic.jpg" alt="pixelQueen" class="patreon-img-large" />
+      <p style="color: #0ff; margin-top: 10px;">pixelQueen</p>
+      <p style="color: #888; font-size: 14px;">Tech Influencer & Advocate</p>
+    </div>
+  </div>
+</section>
+        <p style="color: #0ff; margin-top: 10px;">pixelQueen</p>
+        <p style="color: #888; font-size: 14px;">Tech Influencer & Advocate</p>
       </div>
     </div>
   </section>
@@ -667,5 +314,33 @@
       </p>
     </form>
   </section>
+
+  <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <h4>📞 Contact Us</h4>
+      <p style="margin: 2px;">📞 <a href="tel:+63288881717">+63 (2) 8888-1717</a></p>
+      <p style="margin: 2px;">📧 <a href="mailto:support@pldt.com.ph">support@pldt.com.ph</a></p>
+    </div>
+    <div class="footer-brands">
+      <h4>🤝 Partners</h4>
+      <div class="brand-logos">
+        <a href="https://smart.com.ph/corporate" target="_blank">
+          <img src="https://mcaproperties.com.ph/wp-content/uploads/2018/10/Smart-logo-2016.png" alt="Smart" />
+        </a>
+        <a href="https://cignal.tv" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Cignal.svg" alt="Cignal TV" />
+        </a>
+        <a href="https://tv5.com.ph" target="_blank">
+          <img src="https://static.wikia.nocookie.net/logopedia/images/4/4c/TV5_Logo_Ident_%282010%29.jpg/revision/latest/scale-to-width-down/250?cb=20170715165425" alt="TV5" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 PLDT Inc.</p>
+  </div>
+</footer>
+
 </body>
 </html>
